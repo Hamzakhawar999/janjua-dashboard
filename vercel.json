@@ -1,11 +1,6 @@
 {
-    "version": 2,
-    "public": true,
-    "builds": [
-      { "src": "build/web/index.html", "use": "@vercel/static" }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "build/web/index.html" }
-    ]
-  }
-  
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "public": "build/web"
+}
