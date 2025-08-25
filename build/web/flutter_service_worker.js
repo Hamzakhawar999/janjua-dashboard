@@ -3,11 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "d0bdf93e5d4c51d55b83b5f8f53d4def",
+const RESOURCES = {"flutter_bootstrap.js": "71c8730fb18de3e9ff672ab2b4de46ed",
 "version.json": "ededb7c56bac835dceba00d055d46a0f",
 "index.html": "d794df2446cc1b36837287f8d8e89b53",
 "/": "d794df2446cc1b36837287f8d8e89b53",
-"main.dart.js": "022f7a1c7e1d8fbe29fe147a07747c7b",
+"main.dart.js": "d3cbe3290a674c96cc0d24623ee69460",
 "flutter.js": "83d881c1dbb6d6bcd6b42e274605b69c",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
@@ -23,7 +23,7 @@ const RESOURCES = {"flutter_bootstrap.js": "d0bdf93e5d4c51d55b83b5f8f53d4def",
 "assets/packages/flutter_map/lib/assets/flutter_map_logo.png": "208d63cc917af9713fc9572bd5c09362",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.bin": "b0373528929e5e4e3ffef5a228524ce3",
-"assets/fonts/MaterialIcons-Regular.otf": "93c110658ea9a01be2f91de1775367bf",
+"assets/fonts/MaterialIcons-Regular.otf": "333720ffdd8e32cba6a5eef4cfdb1300",
 "assets/assets/images/greek_salad.jpeg": "d57a6cee801bb95f64cb0839ad430dd6",
 "assets/assets/images/apple_logo.png": "c9403999e859bfdc224f5bb6ab3d33d7",
 "assets/assets/images/drinks.jpeg": "66db070b7252c4fda9f3aac8ab3ca6cc",

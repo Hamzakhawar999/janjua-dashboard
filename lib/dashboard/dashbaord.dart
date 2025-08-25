@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:my_auth/dashboard/auth_page.dart';
 import 'order_table.dart';
 import 'users_table.dart';
 import 'widgets.dart';
@@ -26,14 +27,19 @@ class DashboardPage extends StatelessWidget {
             fontSize: width < 600 ? 18 : 22,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, "/auth");
-            },
-            icon: const Icon(Icons.logout),
-          ),
-        ],
+       actions: [
+  IconButton(
+    onPressed: () {
+      // ✅ Directly push AuthPage and replace dashboard
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => const AuthPage()),
+        (route) => false, // removes all previous routes
+      );
+    },
+    icon: const Icon(Icons.logout),
+  ),
+],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
           child: Divider(color: cs.outlineVariant, height: 1),
