@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart'; // ✅ make sure lottie is in pubspec.yaml
 import 'package:my_auth/dashboard/dashbaord.dart';
 
 
@@ -30,31 +29,28 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
+    final size = MediaQuery.of(context).size;
+    final isMobile = size.width < 600;
+
     return Scaffold(
+      backgroundColor: cs.background,
       body: Center(
-        child: SingleChildScrollView( // ✅ scrollable in smaller screens
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(isMobile ? 16 : 32),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // ---------- Animation ----------
-              Padding(
-                padding: const EdgeInsets.only(bottom: 35.0),
-                child: SizedBox(
-                  width: 260,
-                  height: 220,
-                  child: Lottie.asset(
-                    'assets/animations/TRUCK.json',
-                    repeat: true,
-                    reverse: false,
-                    animate: true,
-                  ),
+              // -------- Logo / Animation --------
+              if (!isMobile)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 40),
+                  child: Icon(Icons.local_shipping,
+                      size: 80, color: cs.primary),
                 ),
-              ),
 
-              // ---------- Login Card ----------
+              // -------- Login Box --------
               Container(
-                width: 380,
+                width: isMobile ? size.width * 0.9 : 380,
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: cs.surface,
@@ -62,10 +58,10 @@ class _AuthPageState extends State<AuthPage> {
                   border: Border.all(color: cs.outlineVariant),
                   boxShadow: [
                     BoxShadow(
-                      color: cs.shadow.withOpacity(0.15),
-                      blurRadius: 16,
-                      offset: const Offset(0, 8),
-                    )
+                      color: cs.primary.withOpacity(0.15),
+                      blurRadius: 10,
+                      offset: const Offset(0, 6),
+                    ),
                   ],
                 ),
                 child: Column(
@@ -73,7 +69,7 @@ class _AuthPageState extends State<AuthPage> {
                   children: [
                     Text("Admin Login",
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: isMobile ? 18 : 20,
                             fontWeight: FontWeight.bold,
                             color: cs.onSurface)),
                     const SizedBox(height: 20),
@@ -83,11 +79,10 @@ class _AuthPageState extends State<AuthPage> {
                             const InputDecoration(labelText: "Email")),
                     const SizedBox(height: 12),
                     TextField(
-                      controller: _passwordController,
-                      obscureText: true,
-                      decoration:
-                          const InputDecoration(labelText: "Password"),
-                    ),
+                        controller: _passwordController,
+                        decoration:
+                            const InputDecoration(labelText: "Password"),
+                        obscureText: true),
                     if (_error != null) ...[
                       const SizedBox(height: 10),
                       Text(_error!, style: const TextStyle(color: Colors.red)),
@@ -96,7 +91,14 @@ class _AuthPageState extends State<AuthPage> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                          onPressed: _login, child: const Text("Login")),
+                        onPressed: _login,
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: const Text("Login"),
+                      ),
                     ),
                   ],
                 ),
